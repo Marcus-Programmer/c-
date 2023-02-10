@@ -22,7 +22,7 @@ while(arquivo.good()){
     
     
     cout<< "Leu: " << linha << endl;
-    scanf(linha.c_str(),&teste.codigo,&teste.preco,&teste.nome&,teste.liberacao&,teste.situacao);
+    scanf(linha.c_str(),&teste.codigo,&teste.preco,&teste.nome,&teste.liberacao,&teste.situacao);
     getline(arquivo,linha);
     
     n+=1;
