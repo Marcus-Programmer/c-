@@ -1,7 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <string>
-#include <sstream>
 
 using namespace std;
 
@@ -12,30 +10,24 @@ struct produtos{
 };
 
 void escrever(string nomeArq, produtos lista[]){
- ifstream file(nomeArq);
-  string linha;
-    int n =0;
-  while (getline(file, linha)) {
-    stringstream lineStream(linha);
-    string cell;
-
-
-    getline(lineStream, cell, ';');
-    istringstream(cell) >> lista[n].codigo;
-
-    getline(lineStream, cell, ';');
-    istringstream(cell) >> lista[n].preco;
-
-    getline(lineStream, cell, ';');
-    lista[n].nome = cell;
-
-    getline(lineStream, cell, ';');
-    lista[n].liberacao = cell;
-
-    getline(lineStream, cell);
-    lista[n].situacao = cell;
-    n++;
+ifstream arquivo(nomeArq);
+bool valido;
+valido = false;
+int n=0;
+const char *mascara = "%d,%f,%[^,],%[^,],%[^,]";
+string linha{};
+produtos teste;
+getline(arquivo,linha);
+while(arquivo.good()){
+    
+    
+    cout<< "Leu: " << linha << endl;
+    scanf(linha.c_str(),&teste.codigo,&teste.preco,&teste.nome&,teste.liberacao&,teste.situacao);
+    getline(arquivo,linha);
+    
+    n+=1;
 }
+arquivo.close();
 }
 
 int main(){
